@@ -1,10 +1,10 @@
 /**
- * fix webm file media file without 2GB filesize limit
+ * fix webm media file without 2GB filesize limit
  *
- * @param blob the blob you need to fix
+ * @param the blob you need to fix
  * @returns the blob that has been fixed
  *
- * use this function can not only add "Duration" but also add "SeekHead", "Seek", "SeekID", "SeekPosition" for the webm
+ * using this function can not only add "Duration" but also add "SeekHead", "Seek", "SeekID", "SeekPosition" for the webm
  * if a webm loss "SeekHead", "Seek", "SeekID", "SeekPosition" and "Cues", "CueTime", "CueTrack", "CueClusterPosition", "CueTrackPositions", "CuePoint",
  * then the webm will not seekable when playing in chrome with builtin <video> tag
  * that means only when all webm is donwloaded then user can seek location

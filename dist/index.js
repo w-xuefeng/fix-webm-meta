@@ -28,12 +28,12 @@ if (!globalThis.Buffer) {
     });
 }
 /**
- * fix webm file media file without 2GB filesize limit
+ * fix webm media file without 2GB filesize limit
  *
- * @param blob the blob you need to fix
+ * @param the blob you need to fix
  * @returns the blob that has been fixed
  *
- * use this function can not only add "Duration" but also add "SeekHead", "Seek", "SeekID", "SeekPosition" for the webm
+ * using this function can not only add "Duration" but also add "SeekHead", "Seek", "SeekID", "SeekPosition" for the webm
  * if a webm loss "SeekHead", "Seek", "SeekID", "SeekPosition" and "Cues", "CueTime", "CueTrack", "CueClusterPosition", "CueTrackPositions", "CuePoint",
  * then the webm will not seekable when playing in chrome with builtin <video> tag
  * that means only when all webm is donwloaded then user can seek location
@@ -62,7 +62,7 @@ function fixWebmMetaInfo(blob) {
         const refinedMetadataBlob = new Blob([refinedMetadataBuf], { type: blob.type });
         const firstPartBlobSlice = blobSlices.shift();
         const firstPartBlobWithoutMetadata = firstPartBlobSlice.slice(reader.metadataSize);
-        // use blob instead of arrayBuffer to construct the new Blob, to minify memory leak
+        // using Blob instead of ArrayBuffer to construct the new Blob, to minify memory leak
         const finalBlob = new Blob([refinedMetadataBlob, firstPartBlobWithoutMetadata, ...blobSlices], { type: blob.type });
         bufSlices = [];
         blobSlices = [];
